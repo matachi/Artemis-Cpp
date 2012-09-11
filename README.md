@@ -7,7 +7,7 @@ Initial work was done by [stalei](https://bitbucket.org/stalei/artemiscpp/src).
 
 This port uses C++11 features.
 
-### Ported classes
+### PORTED CLASSES
 
 - Component
 - ComponentMapper
@@ -31,7 +31,7 @@ This port uses C++11 features.
 - World
 - Bag
 
-### Example
+### EXAMPLE
 
 `VelocityComponent` and `PositionComponent`.
 
@@ -122,9 +122,13 @@ int main(int argc, char **argv) {
     return 0;
 }
 ```
+### LOGS
 
+- Sept 11th, 2012:
+	- Fixed critical bug: deleting World doesn't delete/reset all neccessary data,
+which will lead to memory violation when a World is deleted and a new one is created. Commit: 731d2c3e6f4afbd32e4d33f08f23373d62b91dd9
 
-### License
+### LISENCE
 
 Copyright 2011 GAMADU.COM. All rights reserved.
 
