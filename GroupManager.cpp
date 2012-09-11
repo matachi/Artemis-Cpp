@@ -9,7 +9,7 @@ namespace artemis {
 
 	ImmutableBag<Entity*> * GroupManager::getEntities(std::string group) {
 		Bag<Entity*> * bag = entitiesByGroup[group];
-		if(bag == nullptr) {
+		if(bag == NULL) {
       // create a new empty group
       bag = new Bag<Entity*>(32);
       entitiesByGroup[group] = bag;
@@ -20,7 +20,7 @@ namespace artemis {
 	std::string GroupManager::getGroupOf(Entity& e) {
 		if(e.getId() < groupByEntity.getCapacity()){
 			std::string * group = groupByEntity.get(e.getId());
-			if(group == nullptr) 
+			if(group == NULL) 
 				return empty_string;
 			return  *group;
 		}
@@ -41,18 +41,18 @@ namespace artemis {
 		if(e.getId() < groupByEntity.getCapacity()){
 			
 			std::string * groupId = groupByEntity.get(e.getId());
-			if(groupId != nullptr){
-				groupByEntity.set(e.getId(), nullptr);
+			if(groupId != NULL){
+				groupByEntity.set(e.getId(), NULL);
 				
 				Bag<Entity*> * entities = entitiesByGroup[*groupId];
-				if(entities != nullptr){
+				if(entities != NULL){
 					entities->remove(&e);
 				}
-				entities = nullptr;
+				entities = NULL;
 				delete groupId;
-				groupId = nullptr;
+				groupId = NULL;
 			}
-			groupId = nullptr;
+			groupId = NULL;
 			
 		}
 	}
@@ -61,12 +61,12 @@ namespace artemis {
 		remove(e);
 		
 		Bag<Entity*> * entities = entitiesByGroup[group];
-		if(entities == nullptr){
+		if(entities == NULL){
 			entities = new Bag<Entity*>(32);
 			entitiesByGroup[group] = entities;
 		}
 		entities->add(&e);
-		entities = nullptr;
+		entities = NULL;
 		groupByEntity.set(e.getId(), new std::string(group));
 		
 	}

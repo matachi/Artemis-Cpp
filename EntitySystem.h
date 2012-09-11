@@ -40,7 +40,7 @@ namespace artemis {
     void process();
     int getEntityCount();
   protected:
-    EntitySystem() { this->world = nullptr; };
+    EntitySystem() { this->world = NULL; };
     World * world;
     /**
      * Call this in the constructor of the derived system

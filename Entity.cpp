@@ -15,8 +15,8 @@ namespace artemis {
   }
   
   Entity::~Entity() {
-    world = nullptr;
-    entityManager = nullptr;
+    world = NULL;
+    entityManager = NULL;
   }
   
   

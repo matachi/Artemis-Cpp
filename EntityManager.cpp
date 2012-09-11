@@ -22,12 +22,12 @@ namespace artemis {
     
     if(type.getId() >= componentsByType.getCapacity()) {
       //Resize
-      componentsByType.set(type.getId(), nullptr);
+      componentsByType.set(type.getId(), NULL);
     }
     
     Bag<Component*> * components = componentsByType.get(type.getId());
     
-    if(components == nullptr) {
+    if(components == NULL) {
       components = new Bag<Component*>();
       componentsByType.set(type.getId(), components);
     }
@@ -35,7 +35,7 @@ namespace artemis {
     components->set(e.getId(), c);
     e.addTypeBit(type.getBit());
     
-    components = nullptr;
+    components = NULL;
     
   };
   
@@ -43,7 +43,7 @@ namespace artemis {
     
     Entity * e = this->removedAndAvailable.removeLast();
     
-    if(e == nullptr) {
+    if(e == NULL) {
       e = new Entity(this->world, nextAvailableId++);
     } else {
       e->reset();
@@ -77,10 +77,10 @@ namespace artemis {
     
     Bag<Component*>* bag = componentsByType.get(type.getId());
     
-    if(bag != nullptr && e.getId() < bag->getCapacity())
+    if(bag != NULL && e.getId() < bag->getCapacity())
       return bag->get(e.getId());
     
-    return nullptr;
+    return NULL;
   };
   
   /**
@@ -93,10 +93,10 @@ namespace artemis {
     for(int i=0; i< componentsByType.getCapacity(); i++) {
       Bag<Component*> * components = componentsByType.get(i);
       
-      if(components != nullptr && e.getId() < components->getCapacity()) {
+      if(components != NULL && e.getId() < components->getCapacity()) {
         Component * c = components->get(e.getId());
         
-        if(c != nullptr) {
+        if(c != NULL) {
           entityComponents.add(c);
         }
       }
@@ -106,7 +106,7 @@ namespace artemis {
   };
   
   bool EntityManager::isActive(int entityId) {
-    return activeEntities.get(entityId) != nullptr;
+    return activeEntities.get(entityId) != NULL;
   };
   
   void EntityManager::refresh(Entity& e) {
@@ -120,7 +120,7 @@ namespace artemis {
   };
   
   void EntityManager::remove(Entity& e) {
-    activeEntities.set(e.getId(), nullptr);
+    activeEntities.set(e.getId(), NULL);
     e.setTypeBits(0);
     refresh(e);
     removeComponentsOfEntity(e);
@@ -133,22 +133,22 @@ namespace artemis {
     Bag<Component* > * components = componentsByType.get(type.getId());
     
     delete components->get(e.getId());
-    components->set(e.getId(), nullptr);
+    components->set(e.getId(), NULL);
     e.removeTypeBit(type.getBit());
-    components = nullptr;
+    components = NULL;
   };
   
   void EntityManager::removeComponentsOfEntity(Entity& e) {
     for(int i=0; i<componentsByType.getCapacity(); i++) {
       Bag<Component*> * components = componentsByType.get(i);
       
-      if(components != nullptr && e.getId() < components->getCapacity()) {
+      if(components != NULL && e.getId() < components->getCapacity()) {
         
         delete components->get(e.getId());
-        components->set(e.getId(), nullptr);
+        components->set(e.getId(), NULL);
       }
       
-      components = nullptr;
+      components = NULL;
     }
     
   };
@@ -157,7 +157,7 @@ namespace artemis {
     
     for(int i=0; i<activeEntities.getCapacity(); i++)
     {
-      if(activeEntities.get(i) != nullptr){
+      if(activeEntities.get(i) != NULL){
         remove(*activeEntities.get(i));
       }
     }
@@ -172,13 +172,13 @@ namespace artemis {
     this->removedAndAvailable.deleteData();
     
     for(int i=0; i<componentsByType.getCapacity(); i++) {
-      if(componentsByType.get(i) == nullptr) continue;
+      if(componentsByType.get(i) == NULL) continue;
       componentsByType.get(i)->clear();
     }
     componentsByType.deleteData();
     componentsByType.clear();
     
     //Does not own world. Only points to it.
-    this->world = nullptr;  
+    this->world = NULL;  
   }
 };

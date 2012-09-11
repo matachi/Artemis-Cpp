@@ -42,7 +42,7 @@ namespace artemis {
       
       for(int i=0; i < this->size; i++)
       {
-        if(this->data[i] != nullptr){
+        if(this->data[i] != NULL){
           bag->add(data[i]);
         }
       }
@@ -75,11 +75,11 @@ namespace artemis {
     };
     
     /**
-     * Sets every pointer to nullptrs. Does not delete data.
+     * Sets every pointer to NULLs. Does not delete data.
      */
     void clear() {
       for(int i=0; i<size; i++) {
-        data[i] = nullptr;
+        data[i] = NULL;
       }
       
       count = 0;
@@ -120,11 +120,11 @@ namespace artemis {
     };
     
     E remove(int index) {
-      if(count == 0) return nullptr;
+      if(count == 0) return NULL;
       
       E object = data[index];
       data[index] = data[count-1];
-      data[count-1] = nullptr;
+      data[count-1] = NULL;
       count--;
       return (E) object;
     };
@@ -149,12 +149,12 @@ namespace artemis {
     E removeLast() {
       if(!isEmpty()) {
         E object = data[count-1];
-        data[count-1] = nullptr;
+        data[count-1] = NULL;
         --count;
         return (E) object;
       }
       
-      return nullptr;
+      return NULL;
     };
     
     
@@ -163,10 +163,10 @@ namespace artemis {
       if(index >= size) grow(index*2);
       
       
-      if(o == nullptr && data[index] != nullptr){
+      if(o == NULL && data[index] != NULL){
         count--;
       }
-      else if(o != nullptr && data[index] == nullptr){
+      else if(o != NULL && data[index] == NULL){
         count++;
       };
       
@@ -185,7 +185,7 @@ namespace artemis {
       for(int i=0; i<size; i++)
       {
         delete data[i];
-        data[i] = nullptr;
+        data[i] = NULL;
       }
       count = 0;
     }

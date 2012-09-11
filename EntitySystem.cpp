@@ -7,7 +7,7 @@ using namespace std;
 namespace artemis {
   
 	EntitySystem::~EntitySystem() {
-		world = nullptr;
+		world = NULL;
 	}
   
 	int EntitySystem::getEntityCount(){

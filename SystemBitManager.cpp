@@ -2,10 +2,10 @@
 
 namespace artemis {
 	int SystemBitManager::POS = 0;
-	std::unordered_map<size_t, std::bitset<BITSIZE>*> SystemBitManager::systemBits;
+	std::unordered_map<const std::type_info*, std::bitset<BITSIZE>*, type_info_hash> SystemBitManager::systemBits;
   
 	void SystemBitManager::removeBitSets(){
-		std::unordered_map< size_t, std::bitset<BITSIZE>* >::iterator it;
+		std::unordered_map< const std::type_info*, std::bitset<BITSIZE>*, type_info_hash >::iterator it;
 		
 		for(it = systemBits.begin(); it != systemBits.end(); it++)
 		{
@@ -18,17 +18,15 @@ namespace artemis {
 	std::bitset<BITSIZE> & SystemBitManager::getBitFor(const std::type_info & type) {
     
 		//assert((std::is_base_of< EntitySystem, system >::value == true));
+        
+		std::bitset<BITSIZE> * bit = systemBits[&type];
     
-		size_t hash = type.hash_code();
-    
-		std::bitset<BITSIZE> * bit = systemBits[hash];
-    
-		if(bit == nullptr) {
+		if(bit == NULL) {
       
 			bit = new std::bitset<BITSIZE>(1);
 			(*bit)  <<=  POS++;
       
-			systemBits[hash] = bit;
+			systemBits[&type] = bit;
 		}
     
 		return *bit;

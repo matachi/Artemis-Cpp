@@ -21,7 +21,7 @@ namespace artemis {
     
     ~ComponentMapper() {
       //Not the owner. Only a pointer to.
-      em = nullptr;
+      em = NULL;
     }
     
     void init(World& world){
@@ -31,7 +31,7 @@ namespace artemis {
     /**
      *Returns the component mapped to the Entity.
      *If there is no such component associated with the entity
-     *nullptr is returned.
+     *NULL is returned.
      */
     c * get(Entity & e) {
       //ATTN perhaps pointing to the component bag is faster.

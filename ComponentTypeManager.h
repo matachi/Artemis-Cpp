@@ -2,9 +2,9 @@
 #define COMPTYPE_MANAGER_H
 
 #include <unordered_map>
-#include <typeinfo>
 #include <assert.h>
 #include <bitset>
+#include "TypeInfoHash.h"
 #include "ComponentType.h"
 #include "Component.h"
 
@@ -16,9 +16,7 @@ namespace artemis {
     
   private:
     ComponentTypeManager();
-    static std::unordered_map<size_t,ComponentType*> componentTypes;
-    
-    
+    static std::unordered_map<const std::type_info*,ComponentType*,type_info_hash> componentTypes;
     
   public:
     

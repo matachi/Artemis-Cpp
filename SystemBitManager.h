@@ -1,9 +1,9 @@
 #ifndef SYSBITMANAGER_H
 #define SYSBITMANAGER_H
 
-#include <typeinfo>
 #include <bitset>
 #include <unordered_map>
+#include "TypeInfoHash.h"
 #include "BitSize.h"
 
 namespace artemis {
@@ -13,7 +13,7 @@ namespace artemis {
 	class SystemBitManager {
   private:
     static int POS;
-    static std::unordered_map< size_t, std::bitset<BITSIZE>* > systemBits;
+    static std::unordered_map< const std::type_info*, std::bitset<BITSIZE>*, type_info_hash > systemBits;
     
   public:
     

@@ -1,9 +1,9 @@
 #ifndef SYSTEM_MANAGER_H
 #define SYSTEM_MANAGER_H
 
-#include <typeinfo>
 #include <unordered_map>
 #include "ImmutableBag.h"
+#include "TypeInfoHash.h"
 #include <iostream>
 namespace artemis {
   
@@ -26,7 +26,7 @@ namespace artemis {
     
   private:
     World * world;
-    std::unordered_map<size_t, EntitySystem*> systems;
+    std::unordered_map<const std::type_info*, EntitySystem*, type_info_hash> systems;
     Bag<EntitySystem*> bagged;
 	};
 };

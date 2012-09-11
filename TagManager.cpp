@@ -13,7 +13,7 @@ namespace artemis {
 	}
   
 	bool TagManager::isSubscribed(const std::string tag) {
-		return (tagByEntity[tag] != nullptr);
+		return (tagByEntity[tag] != NULL);
 	}
   
 	void TagManager::remove(Entity &e) {
@@ -30,7 +30,7 @@ namespace artemis {
 	}
   
 	void TagManager::unSubscribe(const std::string tag) {
-		//tagByEntity[tag] = nullptr;
+		//tagByEntity[tag] = NULL;
 		tagByEntity.erase(tag);
 	}
 	

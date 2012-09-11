@@ -46,7 +46,7 @@ namespace artemis {
       }
       else{
         stm->setWorld(world);
-        systems[typeid(*stm).hash_code()]  = stm;
+        systems[&typeid(*stm)]  = stm;
         bagged.add(stm);
         stm->setSystemBit(SystemBitManager::getBitFor(typeid(*stm)));
       }

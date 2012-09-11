@@ -2,11 +2,11 @@
 
 namespace artemis {
 	ComponentType & ComponentTypeManager::getTypeFor(const std::type_info &t) {
-		ComponentType * type = componentTypes[t.hash_code()];
+		ComponentType * type = componentTypes[&t];
     
-		if(type == nullptr) {
+		if(type == NULL) {
 			type = new ComponentType();
-			componentTypes[t.hash_code()] = type;
+			componentTypes[&t] = type;
 		}
     
 		return *type;
@@ -14,7 +14,7 @@ namespace artemis {
 	
 	void ComponentTypeManager::deleteComponentTypes(){
     
-		std::unordered_map<size_t,ComponentType*>::iterator it;
+		std::unordered_map<const std::type_info*,ComponentType*,type_info_hash>::iterator it;
 		
 		for(it = componentTypes.begin(); it != componentTypes.end(); it++)
 		{
@@ -23,5 +23,5 @@ namespace artemis {
 		componentTypes.clear();
 	}
   
-	std::unordered_map<size_t,ComponentType*>ComponentTypeManager::componentTypes;
+	std::unordered_map<const std::type_info*,ComponentType*, type_info_hash>ComponentTypeManager::componentTypes;
 }
