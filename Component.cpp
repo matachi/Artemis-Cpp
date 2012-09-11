@@ -3,8 +3,8 @@
 
 namespace artemis {
 	
-		Component::~Component() {
-
-		}
+  Component::~Component() {
+    
+  }
 	
 };
