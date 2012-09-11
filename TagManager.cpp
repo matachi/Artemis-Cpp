@@ -17,16 +17,15 @@ namespace artemis {
 	}
   
 	void TagManager::remove(Entity &e) {
-		
-		//TODO find cleaner way to remove by value
-		Entity * ent = &e;
-		for(auto& it: tagByEntity){
-			if(it.second == ent){
-				tagByEntity.erase(it.first);
+		// TODO find cleaner way to remove by value
+		std::tr1::unordered_map<std::string, Entity*>::iterator it;
+		for (it = tagByEntity.begin(); it != tagByEntity.end(); ++it) {
+      if(it->second == &e){
+				tagByEntity.erase(it->first);
 				return;
 			}
-		}
-		
+    }
+
 	}
   
 	void TagManager::unSubscribe(const std::string tag) {
