@@ -77,7 +77,7 @@ namespace artemis {
 		
 		//groupByEntity.clear();
 		
-		std::unordered_map<std::string, Bag<Entity*>*>::iterator it;
+		std::tr1::unordered_map<std::string, Bag<Entity*>*>::iterator it;
 			
 			for(it = entitiesByGroup.begin(); it != entitiesByGroup.end(); it++)
 			{

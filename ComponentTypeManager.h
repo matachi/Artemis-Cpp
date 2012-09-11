@@ -1,7 +1,7 @@
 #ifndef COMPTYPE_MANAGER_H
 #define COMPTYPE_MANAGER_H
 
-#include <unordered_map>
+#include <tr1/unordered_map>
 #include <assert.h>
 #include <bitset>
 #include "TypeInfoHash.h"
@@ -16,7 +16,7 @@ namespace artemis {
     
   private:
     ComponentTypeManager();
-    static std::unordered_map<const std::type_info*,ComponentType*,type_info_hash> componentTypes;
+    static std::tr1::unordered_map<const std::type_info*,ComponentType*,type_info_hash> componentTypes;
     
   public:
     
@@ -35,7 +35,7 @@ namespace artemis {
       //Check if we are being legal with components and shizzle
       //Component * c = (component*)0;
       
-      assert((std::is_base_of<Component, c >::value == true));
+      //assert((std::is_base_of<Component, c >::value == true));
       
       return getTypeFor(typeid(c));
     }
@@ -49,7 +49,7 @@ namespace artemis {
       //Check if we are being legal with components and shizzle
       //Component * c = (component*)0;
       
-      assert((std::is_base_of< Component, c >::value == true));
+      //assert((std::is_base_of< Component, c >::value == true));
       return getTypeFor(typeid(c)).getBit();
     }
     /**
@@ -60,7 +60,7 @@ namespace artemis {
       
       //Check if we are being legal with components and shizzle
       
-      assert((std::is_base_of< Component, c >::value == true));
+      //assert((std::is_base_of< Component, c >::value == true));
       
       return getTypeFor(typeid(c)).getId();
     };
