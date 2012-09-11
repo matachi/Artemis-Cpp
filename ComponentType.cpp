@@ -18,6 +18,11 @@ namespace artemis {
 	int ComponentType::getId() const {
 		return id;
 	}
+  
+  void ComponentType::reset() {
+    nextBit = 1;
+    nextId = 1;
+  }
 
 	std::bitset<BITSIZE> ComponentType::nextBit(1);
 	int ComponentType::nextId = 1;

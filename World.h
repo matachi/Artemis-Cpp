@@ -37,9 +37,6 @@ namespace artemis {
 			float delta;
 			Bag<Entity*> refreshed;
 			Bag<Entity*> deleted;
-
-
-
 	};
 };
 #endif // $(Guard token)

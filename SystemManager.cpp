@@ -58,5 +58,6 @@ namespace artemis {
 		SystemManager::~SystemManager(){
 			systems.clear();
 			bagged.deleteData();
+      bagged.clear();
 		}
 };

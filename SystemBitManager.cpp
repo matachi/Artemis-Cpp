@@ -11,6 +11,8 @@ namespace artemis {
 		{
 			delete it->second;
 		}
+    systemBits.clear();
+    POS = 0;
 	}
 
 	std::bitset<BITSIZE> & SystemBitManager::getBitFor(const std::type_info & type) {

@@ -16,6 +16,7 @@ namespace artemis {
 			//==================================
 			std::bitset<BITSIZE> getBit() const;
 			int getId() const;
+      static void reset();
 		private:
 			//
 			static std::bitset<BITSIZE> nextBit;
