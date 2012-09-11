@@ -124,9 +124,11 @@ int main(int argc, char **argv) {
 ```
 ### LOGS
 
+
 - Sept 11th, 2012:
-	- Fixed critical bug: deleting World doesn't delete/reset all neccessary data,
-which will lead to memory violation when a World is deleted and a new one is created. Commit: 731d2c3e6f4afbd32e4d33f08f23373d62b91dd9
+	- [Fixed critical bug](https://github.com/vinova/Artemis-Cpp/commit/731d2c3e6f4afbd32e4d33f08f23373d62b91dd9): deleting World doesn't delete/reset all neccessary data,
+which will lead to memory violation when a World is deleted and a new one is created.
+
 
 ### LISENCE
 
