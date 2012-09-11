@@ -31,8 +31,10 @@ namespace artemis {
     World * world;
     EntityManager * entityManager;
     
-    Entity(const Entity&) = delete;
-    Entity& operator=(const Entity&) = delete;
+    // No copy constructor
+    Entity(const Entity&);
+    // No assign operator
+    Entity& operator=(const Entity&);
     
   protected:
     
