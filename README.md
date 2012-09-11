@@ -5,6 +5,8 @@ A C++ port of [Artemis Entity System Framework](http://gamadu.com/artemis/tutori
 
 Initial work was done by [stalei](https://bitbucket.org/stalei/artemiscpp/src).
 
+This port uses C++11 features.
+
 ### Ported classes
 
 - Component
