@@ -71,7 +71,8 @@ private:
 
 public:
     MovementSystem() {
-        setComponentTypes<MovementComponent,PositionComponent>();
+        addComponentType<MovementComponent>();
+        addComponentType<PositionComponent>();
     };
 
     virtual void initialize() {
