@@ -2,10 +2,10 @@
 
 namespace artemis {
 	int SystemBitManager::POS = 0;
-	std::tr1::unordered_map<const std::type_info*, std::bitset<BITSIZE>*, type_info_hash> SystemBitManager::systemBits;
+	std::map< const std::type_info*, std::bitset<BITSIZE>*, type_info_comparator > SystemBitManager::systemBits;
   
 	void SystemBitManager::removeBitSets(){
-		std::tr1::unordered_map< const std::type_info*, std::bitset<BITSIZE>*, type_info_hash >::iterator it;
+		std::map< const std::type_info*, std::bitset<BITSIZE>*, type_info_comparator >::iterator it;
 		
 		for(it = systemBits.begin(); it != systemBits.end(); it++)
 		{

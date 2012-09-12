@@ -12,13 +12,10 @@
 
 #include <typeinfo>
 
-struct type_info_hash {
-#define type_info_hash_precision 2
-  // hash algorithm discussed on http://stackoverflow.com/a/628867
-  std::size_t operator ()(const std::type_info* tinfo) const {
-    return (*(size_t*)tinfo->name()) >> type_info_hash_precision;
+struct type_info_comparator {
+  bool operator ()(const std::type_info* a, const std::type_info* b) const {
+    return a->before(*b);
   }
-  
 };
 
 

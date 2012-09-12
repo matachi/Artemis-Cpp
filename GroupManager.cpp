@@ -1,6 +1,5 @@
 #include "GroupManager.h"
 #include "Entity.h"
-//#include <string.h>
 
 namespace artemis {
 	GroupManager::GroupManager() : empty_bag(1) {
@@ -77,7 +76,7 @@ namespace artemis {
 		
 		//groupByEntity.clear();
 		
-		std::tr1::unordered_map<std::string, Bag<Entity*>*>::iterator it;
+		std::map<std::string, Bag<Entity*>*>::iterator it;
 			
 			for(it = entitiesByGroup.begin(); it != entitiesByGroup.end(); it++)
 			{

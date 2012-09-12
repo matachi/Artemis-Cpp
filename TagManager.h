@@ -2,7 +2,7 @@
 #define TAG_MANAGER_H
 
 
-#include <tr1/unordered_map>
+#include <map>
 #include <string>
 
 namespace artemis {
@@ -17,7 +17,7 @@ namespace artemis {
 	class TagManager {
   private:
     //World * world;
-    std::tr1::unordered_map<std::string, Entity*> tagByEntity;
+    std::map<std::string, Entity*> tagByEntity;
   public:
     //TagManager(World &world);
     TagManager();

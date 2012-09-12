@@ -1,5 +1,4 @@
 #include "TagManager.h"
-//#include "World.h"
 #include "Entity.h"
 
 namespace artemis {
@@ -18,7 +17,7 @@ namespace artemis {
   
 	void TagManager::remove(Entity &e) {
 		// TODO find cleaner way to remove by value
-		std::tr1::unordered_map<std::string, Entity*>::iterator it;
+		std::map<std::string, Entity*>::iterator it;
 		for (it = tagByEntity.begin(); it != tagByEntity.end(); ++it) {
       if(it->second == &e){
 				tagByEntity.erase(it->first);

@@ -1,12 +1,12 @@
 #ifndef COMPTYPE_MANAGER_H
 #define COMPTYPE_MANAGER_H
 
-#include <tr1/unordered_map>
 #include <assert.h>
 #include <bitset>
-#include "TypeInfoHash.h"
+#include "TypeInfoComparator.h"
 #include "ComponentType.h"
 #include "Component.h"
+#include <map>
 
 namespace artemis {
 	/**
@@ -16,8 +16,9 @@ namespace artemis {
     
   private:
     ComponentTypeManager();
-    static std::tr1::unordered_map<const std::type_info*,ComponentType*,type_info_hash> componentTypes;
-    
+    static std::map<const std::type_info*,ComponentType*,
+                    type_info_comparator> componentTypes;
+        
   public:
     
     static void deleteComponentTypes();
