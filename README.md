@@ -1,11 +1,10 @@
 Artemis-Cpp
 ===
 
-A C++ port of [Artemis Entity System Framework](http://gamadu.com/artemis/tutorial.html), orignially written in Java.
+A C++ port of [Artemis Entity System Framework](http://gamadu.com/artemis/tutorial.html).
 
-Initial work was done by [stalei](https://bitbucket.org/stalei/artemiscpp/src).
+The port was orignially written by [Sidar Talei](https://bitbucket.org/stalei/artemiscpp/src), in which he used several C++11 features such as deleted function, variadic templates, nullptr, etc… We wanted the framework to be portable, so we removed all C++11 feature usages so that it compiles well on "older" compiler.	
 
-This port uses C++11 features.
 
 ### PORTED CLASSES
 
@@ -125,9 +124,11 @@ int main(int argc, char **argv) {
 ### LOGS
 
 
-- Sept 11th, 2012:
+- Sept 11, 2012:
 	- [Fixed critical bug](https://github.com/vinova/Artemis-Cpp/commit/731d2c3e6f4afbd32e4d33f08f23373d62b91dd9): deleting World doesn't delete/reset all neccessary data,
 which will lead to memory violation when a World is deleted and a new one is created.
+- Sept 12, 2012:
+	- Removed all C++11 feature usages.
 
 
 ### LISENCE
