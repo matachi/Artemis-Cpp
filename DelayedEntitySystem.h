@@ -17,6 +17,7 @@ namespace artemis {
 	public:
 			DelayedEntitySystem();
 			void start(float delay);
+    void runNow();
 			void stop();
 			void setAutoRepeat(bool repeat);
 			float getInitialTimeDelay();

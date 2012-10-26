@@ -62,5 +62,9 @@ namespace artemis {
 		acc = 0;
 		running = false;
 	}
+  void DelayedEntitySystem::runNow()
+  {
+    acc = delay;
+  }
 
 };
