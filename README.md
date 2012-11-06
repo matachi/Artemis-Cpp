@@ -1,4 +1,4 @@
-Artemis-Cpp
+Artemis C++
 ===
 
 A C++ port of [Artemis Entity System Framework](http://gamadu.com/artemis/tutorial.html).
