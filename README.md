@@ -124,7 +124,12 @@ int main(int argc, char **argv) {
 ```
 ### LOGS
 
-
+- Dec 10, 2012:
+	- [Fixed  bug](https://github.com/vinova/Artemis-Cpp/commit/449ee9d3167d6bdf8056a8da7554ebec016e5b65): calling Bag.get(index) not returning NULL when index > bag's size,
+	which leads to memory violation when the number of entities becomes greater than initialized entities bag size.
+- Nov 15, 2012:
+	- [Fixed  bug](https://github.com/vinova/Artemis-Cpp/commit/fe291598b699cd283fc029ee727669b8e7a76e24): memory leak when add a component to an entity
+	who already had this component.
 - Sept 11, 2012:
 	- [Fixed critical bug](https://github.com/vinova/Artemis-Cpp/commit/731d2c3e6f4afbd32e4d33f08f23373d62b91dd9): deleting World doesn't delete/reset all neccessary data,
 which will lead to memory violation when a World is deleted and a new one is created.
