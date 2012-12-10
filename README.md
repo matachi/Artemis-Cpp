@@ -3,8 +3,8 @@ Artemis C++
 
 A C++ port of [Artemis Entity System Framework](http://gamadu.com/artemis/tutorial.html).
 
-The port was orignially written by [Sidar Talei](https://bitbucket.org/stalei/artemiscpp/src), in which he used several C++11 features such as deleted function, variadic templates, nullptr, etc… We wanted the framework to be portable, so we removed all C++11 feature usages so that it compiles well on "older" compiler.	
-
+The port was orignially written by [Sidar Talei](https://bitbucket.org/stalei/artemiscpp/src), in which he used several C++11 features such as deleted function, variadic templates, nullptr, etc…
+We wanted the framework to be portable, so we removed all C++11 feature usages.
 
 ### PORTED CLASSES
 
@@ -135,7 +135,6 @@ int main(int argc, char **argv) {
 which will lead to memory violation when a World is deleted and a new one is created.
 - Sept 12, 2012:
 	- Removed all C++11 feature usages.
-
 
 ### LISENCE
 
